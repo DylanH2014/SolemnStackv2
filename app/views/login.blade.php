@@ -1,34 +1,55 @@
-<!doctype html>
 
-<html>
-<head>
-	<title>Look at me Login</title>
-</head>
-<body>
+@extends('masterLayout')
 
-<!-- <a href="{{ URL::to('logout') }}">Logout</a> -->
+@section('title')
+	Login
+@endsection
 
-{{ Form::open(array('url' => 'login')) }}
-<h1>Login</h1>
+@section('content')
+<style>
+	.test {
+		background-image: url('/images/1.jpg');
+	    height: 930px;
+	    width: auto;
+	    background-repeat: no-repeat;
+	}
+</style>
 
-<!-- if there are login errors, show them here -->
-<p>
-    {{ $errors->first('email') }}
-    {{ $errors->first('password') }}
-</p>
+	<div class="test">
+		<div class="container-fluid">
+			<div class="row" style="padding-top: 150px;">
+				<div class="col-md-4"></div>
+				<div class="col-md-4 text-center" style="background-color: white">
+					{{ Form::open(array('url' => 'login')) }}
+					<h1>Login</h1>
+					<!-- if there are login errors, show them here -->
+				    {{ $errors->first('email') }}
+				    {{ $errors->first('password') }}
+					<div class="form-group row">
+						<div class="col-md-2"></div>
+  						<label class="col-md-2 control-label" for="email">Email</label>
+  						<div class="col-md-4">
+  							<input type="text" class="form-control" name="email" id="email" placeholder="Email">
+					  	</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-2"></div>
+  						<label class="col-md-2 control-label" for="password">Password</label>
+  						<div class="col-md-4">
+  							<input type="password" class="form-control" name="password" id="password" placeholder="Password">
+					  	</div>
+					</div>
+					<div style="padding-bottom: 10px;">
+						<button type="submit" class="btn btn-info">Submit</button>
+						{{ Form::close() }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>
-    {{ Form::label('email', 'Email Address') }}
-    {{ Form::text('email', Input::old('email'), array('placeholder' => 'awesome@awesome.com')) }}
-</p>
+@endsection
 
-<p>
-    {{ Form::label('password', 'Password') }}
-    {{ Form::password('password') }}
-</p>
+@section('scripts')
 
-<p>{{ Form::submit('Submit!') }}</p>
-{{ Form::close() }}
-
-</body>
-</html>
+@endsection
