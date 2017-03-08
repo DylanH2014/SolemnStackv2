@@ -1,12 +1,9 @@
-<!doctype html>
 
-<html>
-<head>
-	<title>Look at me Login</title>
-</head>
-<body>
+@extends('masterLayout')
+
+@section('title')
+	Homepage
+@endsection
 
 <a href="{{ URL::to('logout') }}">Logout</a>
 
-</body>
-</html>

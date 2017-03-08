@@ -2,15 +2,10 @@
 
 class HomeController extends BaseController {
 
+	public function homepage() {
 
-	// public function showWelcome()
-	// {
-	// 	return View::make('hello');
-	// }
-
-	public function homepage()
-	{
 		return View::make('homepage');
+		
 	}
 
 
@@ -41,9 +36,7 @@ class HomeController extends BaseController {
 			);
 
 			if(Auth::attempt($userdata)) {
-				// dd('success');
 				return View::make('homepage');
-				// return Redirect::to('homepage');
 			} else {
 				return Redirect::to('login');
 			}
